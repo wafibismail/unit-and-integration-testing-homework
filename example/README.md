@@ -3,6 +3,7 @@ Tests examples:
 //status.js
 import React from "react";
 import { formatCurrentBugs, formatBugsPerSecond } from "utils/format";
+//refer lower down for the imported modules
 const Status = ({ bugs, bps }) => {
   return (
     <section>
@@ -12,7 +13,8 @@ const Status = ({ bugs, bps }) => {
   );
 };
 export default Status;
-
+```
+```javascript
 //status.test.js
 import { render } from "@testing-library/react";
 import React from "react";
@@ -25,4 +27,38 @@ describe("Status Component", () => {
     expect(getByText("Fixing 1 bug per second.")).toBeInTheDocument();
   });
 });
+```
+```javascript
+//utils/format.js
+export const formatCurrentBugs = (bugs) => {
+  if (bugs < 0) {
+    throw new Error("Must supply non-negative value");
+  }
+
+  if (bugs === 0) {
+    return "You have not fixed any bugs.";
+  }
+
+  if (bugs === 1) {
+    return "You have fixed 1 bug.";
+  }
+
+  return `You have fixed ${bugs} bugs.`;
+};
+
+export const formatBugsPerSecond = (bps) => {
+  if (bps < 0) {
+    throw new Error("Must supply non-negative value");
+  }
+
+  if (bps === 0) {
+    return "No auto fixing.";
+  }
+
+  if (bps === 1) {
+    return "Fixing 1 bug per second.";
+  }
+
+  return `Fixing ${bps} bugs per second.`;
+};
 ```
