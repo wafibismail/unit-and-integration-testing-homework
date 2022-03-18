@@ -67,10 +67,12 @@ export const formatBugsPerSecond = (bps) => {
 };
 ```
 Putting the grammar logic (bugs vs bug) somewhere outside of the component is quite nice. Shifts the responsibility where it is more appropriately suited. <br>
-The test for grammar logic however is better placed separately as unit test instead of putting it in the same and thus crowding status.test.js file.
+<br>
+In fact, the test for grammar logic too is better placed separately than the main test for status.js, instead of putting it in the same file and thus crowding it.
 
 ### Unit test:
-For the above helper functions, tests are in another file. <br>
+For the above helper functions i.e. grammar logic, their tests are in another file. <br>
+<br>
 utils/format.test.js
 ```javascript
 import { formatCurrentBugs } from "utils/format.js";
