@@ -16,7 +16,7 @@ Main parts/examples that were went through in the video
 - Unit tests: Include all edge cases
 - Integration tests: Include only tests necessary to confirm that a component works
 
-### Integration test:
+### Integration Test 1:
 Code1 - status.js
 ```javascript
 import React from "react";
@@ -86,7 +86,7 @@ Putting the grammar logic (bugs vs bug) somewhere outside of the component is qu
 <br>
 In fact, the test for grammar logic too is better placed separately than the main test for status.js, instead of putting it in the same file and thus crowding it.
 
-### Unit test:
+### Unit Test 1:
 For the above helper functions i.e. grammar logic, their tests are in another file. <br>
 <br>
 
@@ -149,3 +149,17 @@ describe("Status Component", () => {
 ```
 
 This crowds the test for the "Status" component. It is better to have the the test for it to only confirm that it can work as a component, while the particulars on how it works (in this case grammar) be tested in a separate file with all the edge cases, i.e. the case of Test1B.
+
+### Integration Test 2
+
+Some functions are made available by @testing-library/react e.g.:
+```javascript
+describe("Status Component", () => {
+    it("should render the current status", () => {
+        const { getByText, debug} = render(<Status bugs={1} bps={1} />);
+
+        debug();
+    });
+});
+```
+How it looks like in the dom or what will happen will be displayed in the console
