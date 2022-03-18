@@ -8,17 +8,7 @@ I followed guidelines in Karl Jensen's video [Unit & Integration Testing w/ Jest
 
 I went with the live testing example in the video (code in example folder). Still working on it
 
-
-### Process of creating a test:
-- Set up your environment
-- Do the user action
-- Check whether or not things are the way you expect them to be
-
-### Difference:
-- Unit tests: Include all edge cases
-- Integration tests: Include only tests necessary to confirm that a component works
-
-## Examples:
+## Covered parts:
 
 Main parts/examples that were went through in the video
 
@@ -257,3 +247,12 @@ export const getUpgrades = jest.fn(() =>
     ])
 );
 ```
+
+## Process of creating a test:
+- Set up your environment
+- Do the user action
+- Check whether or not things are the way you expect them to be
+
+## Difference:
+- Unit tests: Include all edge cases
+- Integration tests: Include only tests necessary to confirm that a component works
