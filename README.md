@@ -150,7 +150,7 @@ describe("Status Component", () => {
 
 This crowds the test for the "Status" component. It is better to have the the test for it to only confirm that it can work as a component, while the particulars on how it works (in this case grammar) be tested in a separate file with all the edge cases, i.e. the case of Test1B.
 
-### Integration Test 2
+### Unit Test 1, in depth
 
 Some functions are made available by @testing-library/react e.g.:
 ```javascript
