@@ -1,6 +1,8 @@
-### Source
+# Unit And Integration Testing Homework
 
-This is a homework assigned by my Software Engineering lecturer, who suggested several videos to choose from, though since we're free to use testing frameworks other than the ones suggested and as I have found ahother particular video on YouTube to be of my interest I have decided to go with it instead.
+This is a homework assigned by my Software Engineering lecturer, who suggested several videos to choose from, though since we're free to use testing frameworks other than the ones suggested and as I have found another particular video on YouTube to be of my interest I have decided to go with it instead.
+
+### Source
 
 I followed guidelines in Karl Jensen's video [Unit & Integration Testing w/ Jest - August 10th 2020](https://www.youtube.com/watch?v=X5JSwL56p2A) ([Github link](https://github.com/jensen/jest-notes/)) <br>
 
@@ -12,6 +14,7 @@ Main parts/examples that were went through in the video
 
 ### Difference:
 - Unit tests: Include all edge cases
+- Integration tests: Include only tests necessary to confirm that a component works
 
 ### Integration test:
 Code1 - status.js
