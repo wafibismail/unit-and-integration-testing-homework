@@ -30,26 +30,26 @@ describe("formatCurrentBugs", () => {
 
 describe("formatCurrentBugs", () => {
   it("should return 'No auto fixing.' if bps is zero", () => {
-    expect(formatCurrentBugs(0)).toBe("No auto fixing.");
+    expect(formatBugsPerSecond(0)).toBe("No auto fixing.");
   });
 
   it("should return 'Fixing 1 bug per second.' if bps is one", () => {
-    expect(formatCurrentBugs(1)).toBe("Fixing 1 bug per second.");
+    expect(formatBugsPerSecond(1)).toBe("Fixing 1 bug per second.");
   });
 
   it("should return 'Fixing 2 bugs per second.' if bps is two", () => {
     /* this has been made redundant by the following one */
-    expect(formatCurrentBugs(2)).toBe("Fixing 2 bugs per second.");
+    expect(formatBugsPerSecond(2)).toBe("Fixing 2 bugs per second.");
   });
 
   it("should return relevant message when bps is more than one", () => {
-    expect(formatCurrentBugs(2)).toBe("Fixing 2 bugs per second.");
-    expect(formatCurrentBugs(512)).toBe("Fixing 512 bugs per second.");
-    expect(formatCurrentBugs(9999)).toBe("Fixing 9999 bugs per second.");
+    expect(formatBugsPerSecond(2)).toBe("Fixing 2 bugs per second.");
+    expect(formatBugsPerSecond(512)).toBe("Fixing 512 bugs per second.");
+    expect(formatBugsPerSecond(9999)).toBe("Fixing 9999 bugs per second.");
   });
 
   it("should throw an error if a negative value is passed", () => {
-    expect(() => formatCurrentBugs(-1)).toThrow(
+    expect(() => formatBugsPerSecond(-1)).toThrow(
       "Must supply non-negative value"
     );
   });
