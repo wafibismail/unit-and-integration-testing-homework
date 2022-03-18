@@ -1,2 +1,2 @@
 # Note
-Instead of submitting source codes, I documented the journey in this repository's folder in README.md, since it's somewhat difficult to track the changes done on an already completed project.
+Apart from the source codes, which doesn't say much as it's already a complete project to start with, I also documented the learning journey in this repository's main folder in README.md and NOTES.md
