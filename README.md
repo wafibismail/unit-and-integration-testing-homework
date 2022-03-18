@@ -119,9 +119,9 @@ describe("formatCurrentBugs", () => {
       "Must supply non-negative value"
     );
   });
-
-  ///... and the similar corresponding tests for the formatBugsPerSecond function
 });
+
+///... and the similar corresponding tests for the formatBugsPerSecond function
 ```
 
 All edge cases are included in the test
