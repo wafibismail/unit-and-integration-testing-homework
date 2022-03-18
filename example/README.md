@@ -1,9 +1,10 @@
-Tests examples:
+#### examples:
+
+status.js
 ```javascript
-//status.js
 import React from "react";
 import { formatCurrentBugs, formatBugsPerSecond } from "utils/format";
-//refer lower down for the imported modules
+//refer lower down for the imported modules from utils/format
 const Status = ({ bugs, bps }) => {
   return (
     <section>
@@ -14,8 +15,9 @@ const Status = ({ bugs, bps }) => {
 };
 export default Status;
 ```
+
+status.test.js
 ```javascript
-//status.test.js
 import { render } from "@testing-library/react";
 import React from "react";
 import Status from "components/status";
@@ -28,8 +30,9 @@ describe("Status Component", () => {
   });
 });
 ```
+
+utils/format.js
 ```javascript
-//utils/format.js
 export const formatCurrentBugs = (bugs) => {
   if (bugs < 0) {
     throw new Error("Must supply non-negative value");
