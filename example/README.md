@@ -137,4 +137,4 @@ describe("Status Component", () => {
 });
 ```
 
-This crowds the test for the "Status" component. It is better to have the the test for it to only confirm that it can work, while how it works be tested in a different file, i.e. such as in the case of Test1B.
+This crowds the test for the "Status" component. It is better to have the the test for it to only confirm that it can work as a component, while the particulars on how it works be tested in a different file, i.e. the case of Test1B.
