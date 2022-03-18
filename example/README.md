@@ -1,2 +1,2 @@
 # Note
-Apart from the source codes, which doesn't say much as it's already a complete project to start with, I also documented the learning journey in this repository's main folder in README.md and NOTES.md
+Apart from uploading the source codes, which doesn't say much as it was already a complete project to start with, I also documented the learning journey in this repository's main folder in README.md and NOTES.md
