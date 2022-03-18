@@ -1,6 +1,6 @@
-#### examples:
+#### Examples:
 
-status.js
+Code1 - status.js
 ```javascript
 import React from "react";
 import { formatCurrentBugs, formatBugsPerSecond } from "utils/format";
@@ -16,7 +16,7 @@ const Status = ({ bugs, bps }) => {
 export default Status;
 ```
 
-status.test.js
+Test1 - status.test.js
 ```javascript
 import { render } from "@testing-library/react";
 import React from "react";
@@ -31,7 +31,7 @@ describe("Status Component", () => {
 });
 ```
 
-utils/format.js
+utils/format.js (Dependency in Code1)
 ```javascript
 export const formatCurrentBugs = (bugs) => {
   if (bugs < 0) {
