@@ -120,7 +120,7 @@ describe("formatCurrentBugs", () => {
     );
   });
 
-  ///... and the similar corresponding tests for theformatBugsPerSecond function
+  ///... and the similar corresponding tests for the formatBugsPerSecond function
 });
 ```
 
