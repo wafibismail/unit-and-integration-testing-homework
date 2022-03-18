@@ -159,7 +159,9 @@ describe("Status Component", () => {
         const { getByText, debug} = render(<Status bugs={1} bps={1} />);
 
         debug();
+        expect(getByText("You have fixed 1 bug.")).toBeInDocument();
     });
 });
 ```
-How it looks like in the dom or what will happen will be displayed in the console
+- debug() - How it looks like in the dom or what will happen will be displayed in the console
+- the line below it - test that confirms that the text "You have fixed 1 bug" appears in the document
