@@ -167,4 +167,4 @@ describe("Status Component", () => {
 });
 ```
 - debug() - How it looks like in the dom or what will happen will be displayed in the console
-- the lines below it - test that confirms that the exact texts "You have fixed 1 bug." and "Fixing 1 bug per second." appear somewhere in the document.
+- the lines below it - tests that confirm that the exact texts "You have fixed 1 bug." and "Fixing 1 bug per second." appear somewhere in the document.
