@@ -1,5 +1,6 @@
-#### Examples:
+## Examples:
 
+### Integration test:
 Code1 - status.js
 ```javascript
 import React from "react";
@@ -31,7 +32,7 @@ describe("Status Component", () => {
 });
 ```
 
-utils/format.js (Dependency in Code1)
+utils/format.js (Dependencies / helper functions used in Code1)
 ```javascript
 export const formatCurrentBugs = (bugs) => {
   if (bugs < 0) {
@@ -64,4 +65,40 @@ export const formatBugsPerSecond = (bps) => {
 
   return `Fixing ${bps} bugs per second.`;
 };
+```
+Putting the grammar logic (bugs vs bug) somewhere outside of the component is quite nice. Shifts the responsibility where it is more appropriately suited. <br>
+The test for grammar logic however is better placed separately as unit test instead of putting it in the same and thus crowding status.test.js file.
+
+### Unit test:
+For the above helper functions, tests are in another file. <br>
+utils/format.test.js
+```javascript
+import { formatCurrentBugs } from "utils/format.js";
+
+describe("formatCurrentBugs", () => {
+  it("should return 'You have not fixed any bugs.' if bugs is zero", () => {
+    expect(formatCurrentBugs(0)).toBe("You have not fixed any bugs.");
+  });
+
+  it("should return 'You have fixed 1 bug.' if bugs is one", () => {
+    expect(formatCurrentBugs(1)).toBe("You have fixed 1 bug.");
+  });
+
+  it("should return 'You have fixed 2 bugs.' if bugs is two", () => {
+    /* this has been made redundant by the following one */
+    expect(formatCurrentBugs(2)).toBe("You have fixed 2 bugs.");
+  });
+
+  it("should return relevant message when bugs is more than one", () => {
+    expect(formatCurrentBugs(2)).toBe("You have fixed 2 bugs.");
+    expect(formatCurrentBugs(512)).toBe("You have fixed 512 bugs.");
+    expect(formatCurrentBugs(9999)).toBe("You have fixed 9999 bugs.");
+  });
+
+  it("should throw an error if a negative value is passed", () => {
+    expect(() => formatCurrentBugs(-1)).toThrow(
+      "Must supply non-negative value"
+    );
+  });
+});
 ```
