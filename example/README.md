@@ -1,5 +1,7 @@
 ## Examples:
 
+Main parts/examples went through in the video
+
 ### Integration test:
 Code1 - status.js
 ```javascript
