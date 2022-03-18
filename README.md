@@ -92,7 +92,7 @@ For the above helper functions i.e. grammar logic, their tests are in another fi
 
 Test1B - utils/format.test.js
 ```javascript
-import { formatCurrentBugs } from "utils/format.js";
+import { formatCurrentBugs, formatBugsPerSecond } from "utils/format.js";
 
 describe("formatCurrentBugs", () => {
   it("should return 'You have not fixed any bugs.' if bugs is zero", () => {
@@ -119,6 +119,8 @@ describe("formatCurrentBugs", () => {
       "Must supply non-negative value"
     );
   });
+
+  ///... and the similar corresponding tests for theformatBugsPerSecond function
 });
 ```
 
