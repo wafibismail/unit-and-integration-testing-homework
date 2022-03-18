@@ -106,3 +106,5 @@ describe("formatCurrentBugs", () => {
   });
 });
 ```
+
+All edge cases included in the test
