@@ -168,3 +168,50 @@ describe("Status Component", () => {
 ```
 - debug() - How it looks like in the dom or what will happen will be displayed in the console
 - the lines below it - tests that confirm that the exact texts "You have fixed 1 bug." and "Fixing 1 bug per second." appear somewhere in the document.
+
+## Test 2 - click event & mock function
+
+Implementation
+```javascript
+<Bug onClick={() => addBug(1)} />
+```
+
+Source
+```javascript
+import React from "react";
+
+const Bug = ({ onClick }) => <button onClick={onClick}>Bug</button>;
+
+export default Bug;
+```
+
+Test
+```javascript
+import { render, fireEvent } from "@testing-library/react";
+import React from "react";
+import Bug from "components/bug";
+
+describe("Bug Component", () => {
+  it("should render without crashing", () => {
+    const { getByText } = render(<Bug onClick={() => {}} />);
+    expect(getByText("Bug")).toBeInTheDocument();
+  });
+
+  it("should call our click handler", () => {
+    const onClick = jest.fn();
+    const { getByText } = render(<Bug onClick={onClick} />);
+
+    fireEvent.click(getByText("Bug"));
+
+    //expect(onClick).toHaveBeenCalled(); //initially in the source code
+    expect(onClick).toHaveBeenCalledTimes(1);
+    fireEvent.click(getByText("Bug"));
+    expect(onClick).toHaveBeenCalledTimes(2);
+  });
+});
+```
+
+Notes:
+- fireEvent function is actually from "@testing-library/dom" which "@testing-library/react" also happens to import from
+- toHaveBeenCalled() could be excluded to reduce redundancy
+- jest.fn() has the capability to keep track of how many times it's been called by something else.

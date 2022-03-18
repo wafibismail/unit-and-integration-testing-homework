@@ -13,8 +13,9 @@ describe("Bug Component", () => {
     const { getByText } = render(<Bug onClick={onClick} />);
 
     fireEvent.click(getByText("Bug"));
-
-    expect(onClick).toHaveBeenCalled();
     expect(onClick).toHaveBeenCalledTimes(1);
+
+    fireEvent.click(getByText("Bug"));
+    expect(onClick).toHaveBeenCalledTimes(2);
   });
 });
