@@ -2,6 +2,9 @@
 
 Main parts/examples went through in the video
 
+### Difference:
+- Unit tests: Include all edge cases
+
 ### Integration test:
 Code1 - status.js
 ```javascript
@@ -75,7 +78,8 @@ In fact, the test for grammar logic too is better placed separately than the mai
 ### Unit test:
 For the above helper functions i.e. grammar logic, their tests are in another file. <br>
 <br>
-utils/format.test.js
+
+Test1B - utils/format.test.js
 ```javascript
 import { formatCurrentBugs } from "utils/format.js";
 
@@ -107,4 +111,30 @@ describe("formatCurrentBugs", () => {
 });
 ```
 
-All edge cases included in the test
+All edge cases are included in the test
+
+#### Less preferred code:
+
+Test2 - status.test.js (alternative)
+```javascript
+import { render } from "@testing-library/react";
+import React from "react";
+import Status from "components/status";
+describe("Status Component", () => {
+  it("should render the current status", () => {
+    const { getByText } = render(<Status bugs={1} bps={1} />);
+
+    expect(getByText("You have fixed 1 bug.")).toBeInTheDocument();
+    expect(getByText("Fixing 1 bug per second.")).toBeInTheDocument();
+  });
+
+  it("should render the current status with plural", () => {
+    const { getByText } = render(<Status bugs={2} bps={2} />);
+
+    expect(getByText("You have fixed 2 bugs.")).toBeInTheDocument();
+    expect(getByText("Fixing 2 bugs per second.")).toBeInTheDocument();
+  });
+});
+```
+
+This crowds the test for the "Status" component. It is better to have the the test for it to only confirm that it can work, while how it works be tested in a different file, i.e. such as in the case of Test1B.
