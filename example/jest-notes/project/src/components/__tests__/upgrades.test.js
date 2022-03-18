@@ -11,6 +11,7 @@ describe("Upgrades Component", () => {
     );
 
     expect(getByText("Improve (1)")).toBeInTheDocument();
+    expect(getByText("Improve (1)")).toBeDisabled();
   });
 
   it("should increase the bps and decrease bugs", () => {

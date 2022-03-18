@@ -12,9 +12,12 @@ jest.mock("utils/api");
 
 describe("Application Component", () => {
   it("should render without crashing", async () => {
-    const { getByText } = render(<Application />);
+    const { getByText, debug } = render(<Application />);
+    debug();
 
     await waitForElementToBeRemoved(() => getByText("Loading"));
+
+    expect(getByText("Bug")).toBeInTheDocument();
   });
 
   it("should allow the auto fixer to increase the bug counts", async () => {

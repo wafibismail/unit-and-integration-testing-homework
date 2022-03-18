@@ -8,13 +8,19 @@ I followed guidelines in Karl Jensen's video [Unit & Integration Testing w/ Jest
 
 I went with the live testing example in the video (code in example folder). Still working on it
 
-## Examples:
 
-Main parts/examples that were went through in the video
+### Process of creating a test:
+- Set up your environment
+- Do the user action
+- Check whether or not things are the way you expect them to be
 
 ### Difference:
 - Unit tests: Include all edge cases
 - Integration tests: Include only tests necessary to confirm that a component works
+
+## Examples:
+
+Main parts/examples that were went through in the video
 
 ### Integration Test 1:
 Code1 - status.js
@@ -214,4 +220,40 @@ describe("Bug Component", () => {
 Notes:
 - fireEvent function is actually from "@testing-library/dom" which "@testing-library/react" also happens to import from
 - toHaveBeenCalled() could be excluded to reduce redundancy
+- toHaveBeenCalledWith() checks for argument passed to a called function
+- toHaveBeenCalledTimes() checks for amount of times a function is called
 - jest.fn() has the capability to keep track of how many times it's been called by something else.
+
+## Test 3 - Async functions
+
+Source
+```javascript
+export const getUpgrades = () =>
+    new Promise((resolve, reject) => {
+        setTimeout(
+            () =>
+            resolve([
+                { label: "console.log", cost: 10, bps: 1 },
+                { label: "Debugger", cost: 100, bps: 5 },
+                { label: "Chrome Development Tools", cost: 100, bps: 5 },
+                { label: "Documentataion", cost: 500, bps: 50 },
+                { label: "Mentor", cost: 1000, bps: 25 },
+            ]),
+            3000
+        );
+    });
+
+```
+
+Mock
+```javascript
+export const getUpgrades = jest.fn(() =>
+    Promise.resolve([
+        { label: "console.log", cost: 10, bps: 1 },
+        { label: "Debugger", cost: 100, bps: 5 },
+        { label: "Chrome Development Tools", cost: 100, bps: 5 },
+        { label: "Documentataion", cost: 500, bps: 50 },
+        { label: "Mentor", cost: 1000, bps: 25 },
+    ])
+);
+```
