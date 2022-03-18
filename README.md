@@ -6,11 +6,9 @@ This is a homework assigned by my Software Engineering lecturer, who suggested s
 
 I followed guidelines in Karl Jensen's video [Unit & Integration Testing w/ Jest - August 10th 2020](https://www.youtube.com/watch?v=X5JSwL56p2A) ([Github link](https://github.com/jensen/jest-notes/)) <br>
 
-I went with the live testing example in the video (code in example folder). Still working on it
-
 ## Covered parts:
 
-Main parts/examples that were went through in the video
+Main parts/examples which were gone through in the video
 
 ### Integration Test 1:
 Code1 - status.js
