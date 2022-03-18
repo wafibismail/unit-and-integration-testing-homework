@@ -1,4 +1,4 @@
-Unit tests examples:
+Tests examples:
 ```javascript
 //status.js
 import React from "react";
